@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://api.nbrb.by/exrates'
+export const BASE_URL = 'https://api.kinopoisk.dev'

@@ -15,10 +15,10 @@ const Sidebar = () => {
       </div>
       <nav>
         <ul className={styles.menu}>
-          {list.map(({ Cur_ID, Cur_Name }) => (
+          {list.docs.map(({ Cur_ID, name }) => (
             <li key={Cur_ID}>
             <NavLink to={`/categories/${1}`}>
-              {Cur_Name}
+              {name}
             </NavLink>
           </li>
 
