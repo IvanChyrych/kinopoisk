@@ -15,13 +15,12 @@ const Sidebar = () => {
       </div>
       <nav>
         <ul className={styles.menu}>
-          {list.docs.map(({ Cur_ID, name }) => (
-            <li key={Cur_ID}>
-            <NavLink to={`/categories/${1}`}>
+          {list?.docs.map(({ id, name }) => (
+            <li key={id}>
+            <NavLink to={`/categories/${id}`}>
               {name}
             </NavLink>
           </li>
-
           ))}
         </ul>
       </nav>
