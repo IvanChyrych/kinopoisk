@@ -2,10 +2,10 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { BASE_URL } from '../../utils/constants'
 import axios from 'axios'
 
-export const getProducts = createAsyncThunk('/products/getProducts', async (_, thuknAPI) => {
+export const getCategories = createAsyncThunk('/Categories/getCategories', async (_, thuknAPI) => {
 
     try {
-        const res = await axios(`${BASE_URL}/movie/possible-values-by-field?field=genres.name`, {
+        const res = await axios(`${BASE_URL}/v1/movie/possible-values-by-field?field=genres.name`, {
             headers: {
                 'Content-Type': 'application/json',
                 'X-API-KEY': 'QPVT2B0-R1F4QG4-JZRSDBM-2FPDWCJ'
@@ -22,8 +22,8 @@ export const getProducts = createAsyncThunk('/products/getProducts', async (_, t
 
 
 
-const productsSlice = createSlice({
-    name: 'products',
+const CategoriesSlice = createSlice({
+    name: 'Categories',
     initialState: {
         list: [],
         // filtered: [],
@@ -31,17 +31,17 @@ const productsSlice = createSlice({
         isLoading: false
     },
     extraReducers: (builder) => {
-        builder.addCase(getProducts.pending, (state) => {
+        builder.addCase(getCategories.pending, (state) => {
             state.isLoading = true
         }),
-            builder.addCase(getProducts.fulfilled, (state, { payload }) => {
+            builder.addCase(getCategories.fulfilled, (state, { payload }) => {
                 state.list = payload,
                     state.isLoading = false
             }),
-            builder.addCase(getProducts.rejected, (state) => {
+            builder.addCase(getCategories.rejected, (state) => {
                 state.isLoading = false
             })
     }    
 })
 
-export default productsSlice.reducer
+export default CategoriesSlice.reducer

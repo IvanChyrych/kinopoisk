@@ -5,7 +5,7 @@ import styles from '../styles/Sidebar.module.css'
 import { useSelector } from 'react-redux'
 
 const Sidebar = () => {
-  const { list } = useSelector(({ categories }) => categories)
+  const { list } = useSelector(({ Categories }) => Categories)
   console.log(list)
 
   return (
