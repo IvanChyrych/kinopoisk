@@ -5,7 +5,7 @@ import axios from 'axios'
 export const getCategories = createAsyncThunk('/categories/getCategories', async (_, thuknAPI) => {
   
   try {
-    const res = await axios(`https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=10&query=taxi`, {
+    const res = await axios(`${BASE_URL}/movie/possible-values-by-field?field=genres.name`, {
       headers: {
         'Content-Type': 'application/json',
         'X-API-KEY': 'QPVT2B0-R1F4QG4-JZRSDBM-2FPDWCJ'
@@ -25,7 +25,7 @@ console.log(getCategories());
 const categoriesSlice = createSlice({
   name: 'categories',
   initialState: {
-    list: null,
+    list: [],
     isLoading: false
   },
   extraReducers: (builder) => {

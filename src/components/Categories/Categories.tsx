@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 
 import styles from "../styles/Categories.module.css";
 
-const Categories = ({ title, style = {}, products = [], amount }) => {
+const Categories = ({ title, style = {}, categories = [], amount }) => {
 
-    const list = Object.values(products).filter((_, i) => i < amount);
+    const list = Object.values(categories).filter((_, i) => i < amount);
+
+    console.log(list);
+    
 
     return (
         <section className={styles.section}>
