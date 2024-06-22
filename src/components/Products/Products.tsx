@@ -5,19 +5,19 @@ import styles from '../styles/Sidebar.module.css'
 import { useSelector } from 'react-redux'
 
 const Sidebar = () => {
-  const { list } = useSelector(({ Categories }) => Categories)
+  const { list } = useSelector(({ Products }) => Products)
 
 
   return (
     <section className={styles.sidebar}>
       <div className={styles.title}>
-        CATEGORIES
+        Products
       </div>
       <nav>
         <ul className={styles.menu}>
-          {list.map(({ id, name }) => (
+          {list.docs.map(({ id, name }) => (
             <li key={id}>
-            <NavLink to={`/categories/${id}`}>
+            <NavLink to={`/products/${id}`}>
               {name}
             </NavLink>
           </li>

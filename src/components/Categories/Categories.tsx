@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import styles from "../styles/Categories.module.css";
 
 const categories = ({ title, style = {}, Categories = [], amount }) => {
- console.log(Categories);
+
  
   
  const list = Object.values(Categories).filter((_, i) => i < amount);
-  console.log(list);
+
   return (
     <section className={styles.Categories} style={style}>
       {title && <h2>{title}</h2>}

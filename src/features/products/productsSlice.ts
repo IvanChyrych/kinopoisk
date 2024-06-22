@@ -1,47 +1,62 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { BASE_URL } from '../../utils/constants'
-import axios from 'axios'
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
-export const getCategories = createAsyncThunk('/Categories/getCategories', async (_, thuknAPI) => {
+import { BASE_URL } from "../../utils/constants";
+// import { shuffle } from "../../utils/common";
 
-    try {
-        const res = await axios(`${BASE_URL}/v1/movie/possible-values-by-field?field=genres.name`, {
-            headers: {
-                'Content-Type': 'application/json',
-                'X-API-KEY': 'QPVT2B0-R1F4QG4-JZRSDBM-2FPDWCJ'
-            }
-        })
-        return res.data
-
-    } catch (err) {
-        console.log(err)
-        return thuknAPI.rejectWithValue(err)
+export const getProducts = createAsyncThunk(
+    "products/getProducts",
+    async (_, thunkAPI) => {
+        try {
+            const res = await axios(`${BASE_URL}/v1.4/movie?page=1&limit=10`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-API-KEY': '0JPEDBY-CM3MRJQ-NDMR0N1-FW6Q5R1'
+                }
+            });
+            return res.data;
+           
+            
+        } catch (err) {
+            console.log(err);
+            return thunkAPI.rejectWithValue(err);
+        }
     }
-})
+);
 
-
-
-
-const CategoriesSlice = createSlice({
-    name: 'Categories',
+const productsSlice = createSlice({
+    name: "products",
     initialState: {
         list: [],
-        // filtered: [],
-        // related: [],
-        isLoading: false
+        filtered: [],
+        related: [],
+        isLoading: false,
+    },
+    reducers: {
+        filterByPrice: (state, { payload }) => {
+            state.filtered = state.list.filter(({ price }) => price < payload);
+        },
+        getRelatedProducts: (state, { payload }) => {
+            const list = state.list.filter(({ category: { id } }) => id === payload);
+            //   state.related = shuffle(list);
+        },
     },
     extraReducers: (builder) => {
-        builder.addCase(getCategories.pending, (state) => {
-            state.isLoading = true
-        }),
-            builder.addCase(getCategories.fulfilled, (state, { payload }) => {
-                state.list = payload,
-                    state.isLoading = false
-            }),
-            builder.addCase(getCategories.rejected, (state) => {
-                state.isLoading = false
-            })
-    }    
-})
+        builder.addCase(getProducts.pending, (state) => {
+            state.isLoading = true;
+        });
+        builder.addCase(getProducts.fulfilled, (state, { payload }) => {
+            state.list = payload;
+            state.isLoading = false;
+          
+            
+        });
+        builder.addCase(getProducts.rejected, (state) => {
+            state.isLoading = false;
+        });
+    },
+});
 
-export default CategoriesSlice.reducer
+export const { filterByPrice, getRelatedProducts } = productsSlice.actions;
+
+export default productsSlice.reducer;
