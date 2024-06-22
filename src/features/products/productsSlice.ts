@@ -25,9 +25,9 @@ export const getProducts = createAsyncThunk(
 );
 
 const productsSlice = createSlice({
-    name: "products",
+    name: "Products",
     initialState: {
-        list: [],
+        list: null,
         filtered: [],
         related: [],
         isLoading: false,

@@ -15,7 +15,7 @@ const Sidebar = () => {
       </div>
       <nav>
         <ul className={styles.menu}>
-          {list.docs.map(({ id, name }) => (
+          {list?.docs.map(({ id, name }) => (
             <li key={id}>
             <NavLink to={`/products/${id}`}>
               {name}
