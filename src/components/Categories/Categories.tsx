@@ -1,20 +1,48 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { useSelector } from 'react-redux'
 import styles from "../styles/Categories.module.css";
-
+import { NavLink } from 'react-router-dom'
 const categories = ({ title, style = {}, Categories = [], amount }) => {
 
  
+
+  const { list } = useSelector(({ Categories }) => Categories)
+
+
+ 
+          
+
+
+
+
+
   
- const list = Object.values(Categories).filter((_, i) => i < amount);
+//  const list = Object.values(Categories).filter((_, i) => i < amount);
+
+ console.log(list);
+ 
 
   return (
     <section className={styles.Categories} style={style}>
       {title && <h2>{title}</h2>}
 
       <div className={styles.list}>
-        {list.map(({ id, images, title,  price, name }) => (
+
+
+      {list.map(({ id, name }) => (
+            <li key={id}>
+            <NavLink to={`/categories/${name}`}>
+              {name}
+            </NavLink>
+          </li>
+          ))}
+
+
+
+
+        {/* {list.map(({ id, images, title,  price, name }) => (
           <Link to={`/Categories/${id}`} key={id} className={styles.product}>
             
             
@@ -22,7 +50,7 @@ const categories = ({ title, style = {}, Categories = [], amount }) => {
             <div className={styles.wrapper}>
               <h3 className={styles.title}>{name}</h3>
               {/* <div className={styles.cat}>{cat}</div> */}
-              <div className={styles.info}>
+              {/* <div className={styles.info}>
                 <div className={styles.prices}>
                   <div className={styles.price}>{}$</div>
                   <div className={styles.oldPrice}>
@@ -36,7 +64,7 @@ const categories = ({ title, style = {}, Categories = [], amount }) => {
               </div>
             </div>
           </Link>
-        ))}
+        ))} */} */
       </div>
     </section>
   );
