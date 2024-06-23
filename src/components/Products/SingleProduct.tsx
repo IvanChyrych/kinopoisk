@@ -25,9 +25,6 @@ const SingleProduct = () => {
             <Products amount={5} title="Related products" />
         </>
     );
-
-    return <div>SingleProduct</div>
-
     
 
 }

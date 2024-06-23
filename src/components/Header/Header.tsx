@@ -1,16 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
 import { ROUTES } from '../../utils/routes'
 import styles from '../styles/Header.module.css'
 import { FaSearch, FaShoppingCart, FaHeart } from 'react-icons/fa'
 import LOGO from '../../images/pixema.png'
+import { useGetProductsQuery } from "../../features/api/apiSlice";
 
 const Header = () => {
+  const [searchValue, setSearchValue] = useState("");
+  const { data, isLoading } = useGetProductsQuery({ query: searchValue });
+
+  console.log(data);
+
+  const handleSearch = ({ target: { value } }) => {
+    setSearchValue(value);
+    console.log(value);
+
+  }
+
   return (
     <div className={styles.header}>
       <div className={styles.logo}>
         <Link to={ROUTES.HOME}>
-        <img src={LOGO} alt="Stuff" />
+          <img src={LOGO} alt="Stuff" />
         </Link>
       </div>
       <div className={styles.info}>
@@ -21,13 +33,32 @@ const Header = () => {
           <div className={styles.input}>
             <input
               type="search"
-              name='search'
-              value=''
+              name='query'
+              value={searchValue}
               autoComplete='off'
-              onChange={() => { }}
+              onChange={handleSearch}
               placeholder='Search...' />
           </div>
-          {false && <div className={styles.box}></div>}
+          {searchValue && (
+            <div className={styles.box}>
+              {data.docs.map(({ name, images, id }) => {
+                return (
+                  <Link
+                    key={id}
+                    onClick={() => setSearchValue("")}
+                    className={styles.item}
+                    to={`/products/${id}`}
+                  >
+                    <div
+                      className={styles.image}
+                      // style={{ backgroundImage: `url(${images[0]})` }}
+                    />
+                    <div className={styles.title}>{name}</div>
+                  </Link>
+                );
+              })}
+            </div>
+          )}
 
         </form>
 
