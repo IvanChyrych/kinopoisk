@@ -13,9 +13,9 @@ const Home = () => {
 
   return (
     <>
-      <Poster />
+      {/* <Poster /> */}
       <Categories amount={5} title='Categories' />
-      <Products amount={5} title='Films'/>
+      <Products  title='Films'/>
     </>
 
   )

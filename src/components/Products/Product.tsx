@@ -48,7 +48,7 @@ const Product = (item) => {
       </div>
       <div className={styles.info}>
         <h1 className={styles.title}>{name}</h1>
-        <img src={poster?.url} alt="" />
+        <img width= '400' src={poster?.url} alt="" />
         <div className={styles.price}>{price}$</div>
         <div className={styles.color}>
           <span>Color:</span> Green

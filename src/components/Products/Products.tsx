@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { ROUTES } from '../../utils/routes'
-import styles from '../styles/Sidebar.module.css'
+import styles from '../styles/Products.module.css'
 import { useSelector } from 'react-redux'
 
 const Sidebar = () => {
@@ -15,12 +15,15 @@ const Sidebar = () => {
       </div>
       <nav>
         <ul className={styles.menu}>
-          {list?.docs.map(({ id, name }) => (
+          {list?.docs.map(({ id, name, poster }) => (
             <li key={id}>
-            <NavLink to={`/products/${id}`}>
-              {name}
-            </NavLink>
-          </li>
+              <NavLink to={`/products/${id}`}>
+                <div className="products-title">{name}</div>
+                <div className="products-poster">
+                  <img width='200' src={poster?.url} alt="" />
+                </div>
+              </NavLink>
+            </li>
           ))}
         </ul>
       </nav>

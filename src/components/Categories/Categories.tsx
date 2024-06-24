@@ -6,37 +6,28 @@ import styles from "../styles/Categories.module.css";
 import { NavLink } from 'react-router-dom'
 const categories = ({ title, style = {}, Categories = [], amount }) => {
 
- 
-
   const { list } = useSelector(({ Categories }) => Categories)
 
-
- 
-          
-
-
-
-
-
-  
-//  const list = Object.values(Categories).filter((_, i) => i < amount);
 
  console.log(list);
  
 
   return (
-    <section className={styles.Categories} style={style}>
+    <section className={styles.Categories} >
       {title && <h2>{title}</h2>}
 
       <div className={styles.list}>
 
 
       {list.map(({ id, name }) => (
-            <li key={id}>
-            <NavLink to={`/categories/${name}`}>
-              {name}
-            </NavLink>
-          </li>
+        <ul className="categories">
+          <li key={id}>
+        <NavLink to={`/categories/${name}`}>
+          {name}
+        </NavLink>
+      </li>
+      </ul>
+            
           ))}
 
 
