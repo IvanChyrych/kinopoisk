@@ -30,7 +30,6 @@
   margin-top: 20px;
 }
 
-.categories{
-  display: flex;
-  flex-direction: column;
+.list{
+  display: inline-block;
 }

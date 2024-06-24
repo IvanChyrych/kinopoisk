@@ -9,26 +9,26 @@ const categories = ({ title, style = {}, Categories = [], amount }) => {
   const { list } = useSelector(({ Categories }) => Categories)
 
 
- console.log(list);
- 
+  console.log(list);
+
 
   return (
-    <section className={styles.Categories} >
+    <section className={styles.categories} >
       {title && <h2>{title}</h2>}
 
       <div className={styles.list}>
 
 
-      {list.map(({ id, name }) => (
-        <ul className="categories">
-          <li key={id}>
-        <NavLink to={`/categories/${name}`}>
-          {name}
-        </NavLink>
-      </li>
-      </ul>
-            
-          ))}
+        {list.map(({ id, name }) => (
+          <ul className="categories">
+            <li key={id}>
+              <NavLink to={`/categories/${name}`}>
+                {name}
+              </NavLink>
+            </li>
+          </ul>
+
+        ))}
 
 
 
@@ -41,7 +41,7 @@ const categories = ({ title, style = {}, Categories = [], amount }) => {
             <div className={styles.wrapper}>
               <h3 className={styles.title}>{name}</h3>
               {/* <div className={styles.cat}>{cat}</div> */}
-              {/* <div className={styles.info}>
+        {/* <div className={styles.info}>
                 <div className={styles.prices}>
                   <div className={styles.price}>{}$</div>
                   <div className={styles.oldPrice}>

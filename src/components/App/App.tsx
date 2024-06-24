@@ -22,7 +22,7 @@ const App = () => {
   return (
     <div className="app">
       <Header />
-      <div className="container">
+      <div className="container d-flex">
         {/* <Sidebar /> */}
         <AppRoutes />
       </div>
