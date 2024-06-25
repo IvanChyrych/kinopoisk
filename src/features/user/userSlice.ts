@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { BASE_URL } from "../../utils/constants";
 
+
 // export const createUser = createAsyncThunk(
 //   "users/createUser",
 //   async (payload, thunkAPI) => {
@@ -71,7 +72,10 @@ const userSlice = createSlice({
             ? { ...item, quantity: payload.quantity || item.quantity + 1 }
             : item;
         });
-      } else newCart.push({ ...payload, quantity: 1 });
+      } else {newCart.push({ ...payload, quantity: 1 });
+    
+      localStorage.setItem("tasks", JSON.stringify(newCart));
+    }
 
       state.cart = newCart;
     },

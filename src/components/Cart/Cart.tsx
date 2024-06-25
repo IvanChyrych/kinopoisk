@@ -11,6 +11,10 @@ import styles from "../styles/Cart.module.css";
 const Cart = () => {
   const dispatch = useDispatch();
   const { cart } = useSelector(({ user }) => user);
+  const tasks = JSON.parse(localStorage.getItem("tasks"));
+
+console.log(tasks[0]);
+
 
   const changeQuantity = (item, quantity) => {
     dispatch(addItemToCart({ ...item, quantity }));
@@ -24,12 +28,12 @@ const Cart = () => {
     <section className={styles.cart}>
       <h2 className={styles.title}>Your cart</h2>
 
-      {!cart.length ? (
+      {!tasks.length ? (
         <div className={styles.empty}>Here is empty</div>
       ) : (
         <>
           <div className={styles.list}>
-            {cart.map((item) => {
+            {tasks.map((item) => {
               const { name, title, category, images, price, id, quantity } = item;
 
               return (
@@ -81,11 +85,7 @@ const Cart = () => {
                     className={styles.close}
                     onClick={() => removeItem(item.id)}
                   >
-                    {/* <svg className="icon">
-                      <use
-                        xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#close`}
-                      />
-                    </svg> */}
+                    <button>delete</button>
                   </div>
                 </div>
               );
