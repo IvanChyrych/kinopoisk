@@ -74,6 +74,7 @@
   background: none;
   outline: none;
   width: 100%;
+  
 }
 
 .account {
@@ -138,21 +139,24 @@
   padding: 12px;
   display: flex;
   flex-direction: column;
-  row-gap: 8px;
+  /* row-gap: 8px; */
   background: var(--dark-sea);
   border-radius: 8px;
 }
 
 .box::-webkit-scrollbar {
   display: none;
+  
 }
 
 .item {
+  border: 1px solid red;
   font-size: 13px;
   color: var(--grey);
   display: flex;
   align-items: center;
-  column-gap: 16px;
+  /* column-gap: 16px; */
+  background-color: #242424;
 }
 
 .item:hover {

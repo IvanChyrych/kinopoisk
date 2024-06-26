@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
 import { ROUTES } from '../../utils/routes'
 import styles from '../styles/Header.module.css'
-import { FaSearch, FaShoppingCart, FaHeart } from 'react-icons/fa'
+import { FaSearch,  FaHeart } from 'react-icons/fa'
 import LOGO from '../../images/pixema.png'
 import { useGetProductsQuery } from "../../features/api/apiSlice";
 
@@ -63,15 +63,11 @@ const Header = () => {
         </form>
 
         <div className={styles.account}>
-          <Link to={ROUTES.HOME} className={styles.cart}>
-            <FaHeart />
-
-          </Link>
           <Link to={ROUTES.CART} className={styles.cart}>
-            <FaShoppingCart />
-            <span className={styles.count}>
+          <FaHeart />
+            {/* <span className={styles.count}>
               2
-            </span>
+            </span> */}
           </Link>
         </div>
 

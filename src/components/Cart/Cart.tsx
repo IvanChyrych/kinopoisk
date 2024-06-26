@@ -13,7 +13,7 @@ const Cart = () => {
   const { cart } = useSelector(({ user }) => user);
   const tasks = JSON.parse(localStorage.getItem("tasks"));
 
-console.log(tasks[0]);
+// console.log(tasks[0]);
 
 
   const changeQuantity = (item, quantity) => {
@@ -24,16 +24,15 @@ console.log(tasks[0]);
     dispatch(removeItemFromCart(id));
   };
 
-  return (
-    <section className={styles.cart}>
-      <h2 className={styles.title}>Your cart</h2>
 
-      {!tasks.length ? (
-        <div className={styles.empty}>Here is empty</div>
-      ) : (
+
+        return (
+          <section className={styles.cart}>
+            <h2 className={styles.title}>Your favourites</h2>
+
         <>
           <div className={styles.list}>
-            {tasks.map((item) => {
+            {cart.map((item) => {
               const { name, title, category, images, price, id, quantity } = item;
 
               return (
@@ -93,17 +92,12 @@ console.log(tasks[0]);
           </div>
 
           <div className={styles.actions}>
-            <div className={styles.total}>
-              TOTAL PRICE:{" "}
-              {/* <span>
-                {sumBy(cart.map(({ quantity, price }) => quantity * price))}$
-              </span> */}
-            </div>
+            
 
-            <button className={styles.proceed}>Proceed to checkout</button>
+          
           </div>
         </>
-      )}
+      
     </section>
   );
 };

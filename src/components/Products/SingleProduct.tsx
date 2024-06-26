@@ -6,6 +6,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ROUTES } from "../../utils/routes";
 import { useGetProductQuery } from "../../features/api/apiSlice";
 
+import styles from "../styles/Product.module.css";
+
 const SingleProduct = () => {
     const { id } = useParams();
     const { data, isLoading, isFetching, isSuccess } = useGetProductQuery({ id });
@@ -21,11 +23,13 @@ const SingleProduct = () => {
         <section className="preloader">Loading...</section>
     ) : (
         <>
-            <Product {...data} />
-            <Products amount={5} title="Related products" />
+            <div className={styles.product__wrapper}>
+                <Product {...data} />
+                <Products amount={5} title="Related products" />
+            </div>
         </>
     );
-    
+
 
 }
 

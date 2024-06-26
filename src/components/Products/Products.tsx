@@ -27,10 +27,6 @@ const Sidebar = () => {
           ))}
         </ul>
       </nav>
-      <div className={styles.footer}>
-        <a href="/help" className={styles.link}>Help</a>
-        <a href="/terms">Terms & Conditions</a>
-      </div>
     </section>
   )
 }

@@ -9,7 +9,7 @@
 
 .info {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .images {
@@ -129,4 +129,18 @@
 .add:disabled {
   cursor: not-allowed;
   background: var(--bg);
+}
+
+.leftSide {
+display: flex;
+flex-direction: column;
+}
+
+.rightSide {
+  
+}
+
+.product__wrapper{
+  display: flex;
+  flex-direction: column;
 }
