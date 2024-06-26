@@ -9,16 +9,15 @@ import styles from "../styles/Cart.module.css";
 // import { sumBy } from "../../utils/common";
 
 const Cart = () => {
-  const dispatch = useDispatch();
-  const { cart } = useSelector(({ user }) => user);
-  const tasks = JSON.parse(localStorage.getItem("tasks"));
+  
+  // const { cart } = useSelector(({ user }) => user);
+  const cart = JSON.parse(localStorage.getItem("cart"));
 
+
+
+
+  
 // console.log(tasks[0]);
-
-
-  const changeQuantity = (item, quantity) => {
-    dispatch(addItemToCart({ ...item, quantity }));
-  };
 
   const removeItem = (id) => {
     dispatch(removeItemFromCart(id));
@@ -33,20 +32,17 @@ const Cart = () => {
         <>
           <div className={styles.list}>
             {cart.map((item) => {
-              const { name, title, category, images, price, id, quantity } = item;
+              const { poster, name, title, category, images, price, id, quantity } = item;
 
               return (
                 <div className={styles.item} key={id}>
-                  {/* <div
-                    className={styles.image}
-                    style={{ backgroundImage: `url(${images[0]})` }}
-                  /> */}
+                  <img width='100' src={poster?.url} alt="" />
                   <div className={styles.info}>
                     <h3 className={styles.name}>{title}</h3>
                     <div className={styles.category}>{name}</div>
                   </div>
 
-                  <div className={styles.price}>{price}$</div>
+                  {/* <div className={styles.price}>{price}$</div> */}
 
                   <div className={styles.quantity}>
                     <div
@@ -62,7 +58,7 @@ const Cart = () => {
                       </svg> */}
                     </div>
 
-                    <span>{quantity}</span>
+                    {/* <span>{quantity}</span> */}
 
                     <div
                       className={styles.plus}
@@ -78,7 +74,7 @@ const Cart = () => {
                     </div>
                   </div>
 
-                  <div className={styles.total}>{price * quantity}$</div>
+                  {/* <div className={styles.total}>{price * quantity}$</div> */}
 
                   <div
                     className={styles.close}

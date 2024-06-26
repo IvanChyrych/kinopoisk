@@ -26,8 +26,6 @@ const categoriesSlice = createSlice({
     name: 'Categories',
     initialState: {
         list: [],
-        // filtered: [],
-        // related: [],
         isLoading: false
     },
     extraReducers: (builder) => {

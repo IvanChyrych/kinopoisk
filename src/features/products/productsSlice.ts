@@ -8,7 +8,7 @@ export const getProducts = createAsyncThunk(
     "products/getProducts",
     async (_, thunkAPI) => {
         try {
-            const res = await axios(`${BASE_URL}/v1.4/movie?page=1&limit=10`, {
+            const res = await axios(`${BASE_URL}/v1.4/movie?page=1&limit=10&genres.name=драма`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'X-API-KEY': '0JPEDBY-CM3MRJQ-NDMR0N1-FW6Q5R1'

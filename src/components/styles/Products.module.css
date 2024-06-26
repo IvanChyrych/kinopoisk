@@ -96,3 +96,7 @@
   display: flex;
   flex-wrap: wrap;
 }
+.productsItemWrapper{
+  /* display: flex; */
+  margin: 10px;
+}

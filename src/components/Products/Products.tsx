@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux'
 const Sidebar = () => {
   const { list } = useSelector(({ Products }) => Products)
 
-
   return (
     <section className={styles.sidebar}>
       <div className={styles.title}>
@@ -18,9 +17,11 @@ const Sidebar = () => {
           {list?.docs.map(({ id, name, poster }) => (
             <li key={id}>
               <NavLink to={`/products/${id}`}>
-                <div className="products-title">{name}</div>
-                <div className="products-poster">
-                  <img width='200' src={poster?.url} alt="" />
+                <div className={styles.productsItemWrapper}>
+                  <div className="products-poster">
+                    <img width='200' src={poster?.url} alt="" />
+                  </div>
+                  <div className="products-title">{name}</div>
                 </div>
               </NavLink>
             </li>
