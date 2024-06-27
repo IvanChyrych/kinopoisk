@@ -95,8 +95,20 @@
 .menu{
   display: flex;
   flex-wrap: wrap;
+  list-style-type: none;
 }
 .productsItemWrapper{
   /* display: flex; */
   margin: 10px;
 }
+
+.pagination{
+list-style-type: none;
+display: flex;
+}
+
+.pagination li{
+  margin: 0 2px;
+  font-size: 20px;
+  background-color: #00850b;
+  }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
 import { ROUTES } from '../../utils/routes'
 import styles from '../styles/Header.module.css'
-import { FaSearch,  FaHeart } from 'react-icons/fa'
+import { FaSearch, FaHeart } from 'react-icons/fa'
 import LOGO from '../../images/pixema.png'
 import { useGetProductsQuery } from "../../features/api/apiSlice";
 
@@ -10,11 +10,8 @@ const Header = () => {
   const [searchValue, setSearchValue] = useState("");
   const { data, isLoading } = useGetProductsQuery({ query: searchValue });
 
-  console.log(data);
-
   const handleSearch = ({ target: { value } }) => {
     setSearchValue(value);
-    console.log(value);
 
   }
 
@@ -22,7 +19,7 @@ const Header = () => {
     <div className={styles.header}>
       <div className={styles.logo}>
         <Link to={ROUTES.HOME}>
-          <img src={LOGO} alt="Stuff" />
+          <img src={LOGO} />
         </Link>
       </div>
       <div className={styles.info}>
@@ -41,7 +38,7 @@ const Header = () => {
           </div>
           {searchValue && (
             <div className={styles.box}>
-              {data.docs.map(({ name, images, id }) => {
+              {data.docs.map(({ name, poster, id }) => {
                 return (
                   <Link
                     key={id}
@@ -49,31 +46,21 @@ const Header = () => {
                     className={styles.item}
                     to={`/products/${id}`}
                   >
-                    <div
-                      className={styles.image}
-                      // style={{ backgroundImage: `url(${images[0]})` }}
-                    />
+                    <img width='50' src={poster?.url} alt="" />
                     <div className={styles.title}>{name}</div>
                   </Link>
                 );
               })}
             </div>
           )}
-
         </form>
-
         <div className={styles.account}>
           <Link to={ROUTES.CART} className={styles.cart}>
-          <FaHeart />
-            {/* <span className={styles.count}>
-              2
-            </span> */}
+            <FaHeart />
           </Link>
         </div>
-
       </div>
     </div>
-
   )
 }
 

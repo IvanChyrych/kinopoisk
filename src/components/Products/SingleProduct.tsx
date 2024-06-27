@@ -11,7 +11,7 @@ import styles from "../styles/Product.module.css";
 const SingleProduct = () => {
     const { id } = useParams();
     const { data, isLoading, isFetching, isSuccess } = useGetProductQuery({ id });
-    console.log(data);
+
     useEffect(() => {
         if (!isFetching && !isLoading && !isSuccess) {
             navigate(ROUTES.HOME);

@@ -14,9 +14,8 @@ const Footer = () => {
         </Link>
       </div>
       <div className={styles.rights}>
-        Developed by <a href="">Chyrych</a>
+        Developed by <a href="">Ivan</a>
       </div>
-
     </section>
   )
 }

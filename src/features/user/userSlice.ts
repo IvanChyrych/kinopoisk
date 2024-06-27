@@ -20,7 +20,7 @@ const userSlice = createSlice({
             ? { ...item, quantity: payload.quantity || item.quantity + 1 }
             : item;
         });
-      } else {newCart.push({ ...payload, quantity: 1 });
+      } else {newCart.push({ ...payload });
     
       localStorage.setItem("cart", JSON.stringify(newCart));
     }
@@ -39,13 +39,10 @@ const userSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    // builder.addCase(createUser.fulfilled, addCurrentUser);
-    // builder.addCase(loginUser.fulfilled, addCurrentUser);
-    // builder.addCase(updateUser.fulfilled, addCurrentUser);
   },
 });
 
-export const { addItemToCart, removeItemFromCart, toggleForm, toggleFormType } =
+export const { addItemToCart, removeItemFromCart} =
   userSlice.actions;
 
 export default userSlice.reducer;

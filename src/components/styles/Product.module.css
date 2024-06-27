@@ -126,6 +126,10 @@
   margin-top: auto;
 }
 
+.add{
+  margin-top: 20px;
+}
+
 .add:disabled {
   cursor: not-allowed;
   background: var(--bg);
@@ -144,3 +148,4 @@ flex-direction: column;
   display: flex;
   flex-direction: column;
 }
+
