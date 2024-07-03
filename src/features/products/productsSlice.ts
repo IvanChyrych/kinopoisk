@@ -9,12 +9,13 @@ export const getProducts = createAsyncThunk(
     "products/getProducts",
     async (_, thunkAPI) => {
         try {
-            const res = await axios(`${BASE_URL}/v1.4/movie?page=6&limit=30`, {
+            const res = await axios(`${BASE_URL}/v1.4/movie?page=1&limit=30&selectFields=id&selectFields=name&selectFields=description&selectFields=year&selectFields=rating&selectFields=countries&selectFields=poster&notNullFields=id&notNullFields=name&notNullFields=poster.url`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'X-API-KEY': '0JPEDBY-CM3MRJQ-NDMR0N1-FW6Q5R1'
                 }
             });
+            console.log(res.data);
             return res.data;
            
             
