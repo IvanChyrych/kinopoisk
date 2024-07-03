@@ -27,7 +27,7 @@ const Header = () => {
           <div className={styles.icon}>
             <FaSearch />
           </div>
-          <div className={styles.input}>
+          <div className='text-primary'>
             <input
               type="search"
               name='query'

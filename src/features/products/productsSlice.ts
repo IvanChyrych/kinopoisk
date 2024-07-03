@@ -4,13 +4,12 @@ import axios from "axios";
 import { BASE_URL } from "../../utils/constants";
 // import { shuffle } from "../../utils/common";
 
-const item =5
 
 export const getProducts = createAsyncThunk(
     "products/getProducts",
     async (_, thunkAPI) => {
         try {
-            const res = await axios(`${BASE_URL}/v1.4/movie?page=${item}&limit=10`, {
+            const res = await axios(`${BASE_URL}/v1.4/movie?page=6&limit=30`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'X-API-KEY': '0JPEDBY-CM3MRJQ-NDMR0N1-FW6Q5R1'

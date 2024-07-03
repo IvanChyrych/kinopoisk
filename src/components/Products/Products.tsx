@@ -38,7 +38,7 @@ const Sidebar = () => {
                   <div className="products-poster">
                     <img width='200' src={poster?.url} alt="" />
                   </div>
-                  <div className="products-title">{name}</div>
+                  <div className="mt-5">{name}</div>
                 </div>
               </NavLink>
             </li>

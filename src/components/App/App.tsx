@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import './App.css'
+import './App.scss'
 
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
@@ -19,9 +19,9 @@ const App = () => {
 
 
   return (
-    <div className="app">
+    <div className="app ">
       <Header />
-      <div className="container d-flex">
+      <div className="d-flex flex-nowrap">
         <AppRoutes />
       </div>
       <Footer />
