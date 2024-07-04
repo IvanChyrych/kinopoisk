@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { ROUTES } from '../../utils/routes'
-import styles from '../styles/Products.module.css'
+import { ROUTES } from '../../router'
+
 import { useSelector } from 'react-redux'
 
 const pagesCount=5
@@ -25,17 +25,14 @@ const Sidebar = () => {
   const { list } = useSelector(({ Products }) => Products)
 
   return (
-    <section className={styles.sidebar}>
-      {/* <div className={styles.title}>
-        Products
-      </div> */}
-      <nav>
-        <ul className={styles.menu}>
+    <section >
+            <nav>
+        <ul >
           {list?.docs.map(({ id, name, poster, limit }) => (
             <li key={id}>
               <NavLink to={`/products/${id}`}>
-                <div className={styles.productsItemWrapper}>
-                  <div className="products-poster">
+                <div >
+                  <div >
                     <img width='200' src={poster?.url} alt="" />
                   </div>
                   <div className="mt-5">{name}</div>
@@ -57,19 +54,19 @@ function renderPagination() {
   const paginationScheme = buildPaginationScheme()
 
   return (
-    <ul className={styles.pagination}>
+    <ul >
       {paginationScheme.map((item, index) => {
         if (item === '...') {
           return (
-            <li className="page-item" key={index}>
-              <span className="page-link">...</span>
+            <li key={index}>
+              <span >...</span>
             </li>
           )
         }
 
         return (
-          <li className="page-item" key={index}>
-            <NavLink className="page-link" to={`/posts/pages/${item}`}>
+          <li key={index}>
+            <NavLink  to={`/posts/pages/${item}`}>
               {item}
             </NavLink>
           </li>

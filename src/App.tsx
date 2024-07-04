@@ -2,18 +2,17 @@ import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import './App.scss'
 
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
-import AppRoutes from '../Routes/Routes'
+import Header from '../src/components/Header/Header'
+import Footer from '../src/components/Footer/Footer'
+import AppRoutes from './routes/Routes'
 
-import { getCategories } from '../../features/categories/categoriesSlice'
-import { getProducts } from '../../features/products/productsSlice'
+
+import { getProducts } from './redux/filmsSlice'
 
 const App = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getCategories())
     dispatch(getProducts())
   }, [dispatch])
 

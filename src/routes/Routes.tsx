@@ -1,10 +1,10 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Home from '../Home/Home'
-import SingleProduct from '../Products/SingleProduct';
+import Home from '../components/Home/Home'
+import SingleProduct from '../components/Films/SingleFilm';
 
-import { ROUTES } from "../../utils/routes";
-import Cart from '../Cart/Cart';
+import { ROUTES } from "../router";
+import Cart from '../components/Cart/Cart';
 
 const AppRoutes = () => (
   <Routes>

@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 
-import Product from "./Product";
-import Products from "./Products";
+import Product from "./Film";
+import Products from "./Films";
 import { useNavigate, useParams } from "react-router-dom";
-import { ROUTES } from "../../utils/routes";
-import { useGetProductQuery } from "../../features/api/apiSlice";
+import { ROUTES } from "../../router";
+import { useGetProductQuery } from "../../redux/apiSlice";
 
-import styles from "../styles/Product.module.css";
 
 const SingleProduct = () => {
     const { id } = useParams();
@@ -20,10 +19,10 @@ const SingleProduct = () => {
     }, [isLoading, isFetching, isSuccess]);
 
     return !data ? (
-        <section className="preloader">Loading...</section>
+        <section >Loading...</section>
     ) : (
         <>
-            <div className={styles.product__wrapper}>
+            <div >
                 <Product {...data} />
                 <Products amount={5} title="Related products" />
             </div>

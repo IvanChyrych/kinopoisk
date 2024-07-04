@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
-import { ROUTES } from '../../utils/routes'
-import styles from '../styles/Header.module.css'
+import { ROUTES } from '../../router'
+
 import { FaSearch, FaHeart } from 'react-icons/fa'
 import LOGO from '../../images/pixema.png'
-import { useGetProductsQuery } from "../../features/api/apiSlice";
+import { useGetProductsQuery } from "../../redux/apiSlice";
 
 const Header = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -16,18 +16,18 @@ const Header = () => {
   }
 
   return (
-    <div className={styles.header}>
-      <div className={styles.logo}>
+    <div >
+      <div >
         <Link to={ROUTES.HOME}>
           <img src={LOGO} />
         </Link>
       </div>
-      <div className={styles.info}>
-        <form className={styles.form}>
-          <div className={styles.icon}>
+      <div >
+        <form >
+          <div >
             <FaSearch />
           </div>
-          <div className='text-primary'>
+          <div >
             <input
               type="search"
               name='query'
@@ -37,25 +37,25 @@ const Header = () => {
               placeholder='Search...' />
           </div>
           {searchValue && (
-            <div className={styles.box}>
+            <div >
               {data.docs.map(({ name, poster, id }) => {
                 return (
                   <Link
                     key={id}
                     onClick={() => setSearchValue("")}
-                    className={styles.item}
+                    
                     to={`/products/${id}`}
                   >
                     <img width='50' src={poster?.url} alt="" />
-                    <div className={styles.title}>{name}</div>
+                    <div >{name}</div>
                   </Link>
                 );
               })}
             </div>
           )}
         </form>
-        <div className={styles.account}>
-          <Link to={ROUTES.CART} className={styles.cart}>
+        <div >
+          <Link to={ROUTES.CART} >
             <FaHeart />
           </Link>
         </div>
