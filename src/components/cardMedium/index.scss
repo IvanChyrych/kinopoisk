@@ -1,0 +1,20 @@
+.cardMediumContainer{
+    display: flex;
+    // flex-direction: column;
+    max-width: 350px;
+    border: solid 1px black;
+    margin: 5px;
+}
+
+.cardMediumTitle {
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 28px;
+    text-align: left;
+}
+
+.cardMediumImage{
+    max-width: 230px;
+    margin: 5px;
+}
