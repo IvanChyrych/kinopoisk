@@ -2,19 +2,19 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { ROUTES } from "../../router";
+import { ROUTES } from "../router";
 
-import { addItemToCart } from "../../redux/userSlice";
+// import { addItemToCart } from "../redux/userSlice";
 
 const Product = (item) => {
   const { poster, name, description, year, movieLength
   } = item;
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const addToCart = () => {
-    dispatch(addItemToCart(item));
-  };
+  // const addToCart = () => {
+  //   dispatch(addItemToCart(item));
+  // };
 
   return (
     <section >
@@ -22,7 +22,7 @@ const Product = (item) => {
         <div >
           <img width='250' src={poster?.url} alt="" />
           <button
-            onClick={addToCart}
+            // onClick={addToCart}
             
           >
             Add to favourites

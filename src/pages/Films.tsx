@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { ROUTES } from '../../router'
+import { ROUTES } from '../router'
 
 import { useSelector } from 'react-redux'
 
@@ -27,7 +27,7 @@ const Sidebar = () => {
   return (
     <section >
             <nav>
-        <ul >
+        <ul className='d-flex flex-wrap'>
           {list?.docs.map(({ id, name, poster, limit }) => (
             <li key={id}>
               <NavLink to={`/products/${id}`}>

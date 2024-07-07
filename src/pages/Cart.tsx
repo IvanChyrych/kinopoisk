@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addItemToCart,
-  removeItemFromCart,
-} from "../../redux/userSlice";
+// import {
+//   addItemToCart,
+//   removeItemFromCart,
+// } from "../redux/userSlice";
 
 
 
@@ -11,15 +11,15 @@ const Cart = () => {
 
   const cart = JSON.parse(localStorage.getItem("cart"));
 
-  const removeItem = (id) => {
-    dispatch(removeItemFromCart(id));
-  };
+  // const removeItem = (id) => {
+  //   dispatch(removeItemFromCart(id));
+  // };
   return (
     <section >
       <h2 >Your favourites</h2>
 
       <>
-        <div >
+        {/* <div >
           {cart.map((item) => {
             const { poster, name, title, category, images, price, id, quantity } = item;
 
@@ -56,7 +56,7 @@ const Cart = () => {
               </div>
             );
           })}
-        </div>
+        </div> */}
         <div >
         </div>
       </>

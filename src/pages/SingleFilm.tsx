@@ -3,13 +3,15 @@ import React, { useEffect } from "react";
 import Product from "./Film";
 import Products from "./Films";
 import { useNavigate, useParams } from "react-router-dom";
-import { ROUTES } from "../../router";
-import { useGetProductQuery } from "../../redux/apiSlice";
+import { ROUTES } from "../router";
+import { useGetProductQuery } from "../redux/apiSlice";
 
 
-const SingleProduct = () => {
+const SingleProduct = (item) => {
     const { id } = useParams();
     const { data, isLoading, isFetching, isSuccess } = useGetProductQuery({ id });
+    const { poster, name, description, year, movieLength
+    } = item;
 
     useEffect(() => {
         if (!isFetching && !isLoading && !isSuccess) {
@@ -24,6 +26,7 @@ const SingleProduct = () => {
         <>
             <div >
                 <Product {...data} />
+                <img width='250' src={poster?.url} alt="" />
                 <Products amount={5} title="Related products" />
             </div>
         </>
