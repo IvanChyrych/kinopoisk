@@ -18,8 +18,8 @@ export const PostPreviewModal = () => {
   return (
    <div className={`post-preview-modal ${isShown ? 'active' : ''}`}>
       <div className="post-preview-modal__content">
-        <div className="image-container">
-          <img src={currentImage} alt="post" />
+        <div className="image-container d-flex justify-content-center">
+          <img src={currentImage} className='w-25' alt="post" />
         </div>
         <div className="post-preview-modal__close" onClick={handleCloseModal}>
           <IoIosCloseCircleOutline />

@@ -20,7 +20,7 @@ export function SearchResults () {
 
     if (error) return <div className="alert alert-danger">{error}</div>
 
-    return posts.map(post => <CardPost key={post.id} id={post.id} title={post.name} text={post.body} image={post.image} />)
+    return posts.map(post => <CardPost key={post.id} id={post.id} title={post.name} text={post.body} image={post.poster?.url} />) 
   }
 
   return (

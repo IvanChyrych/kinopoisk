@@ -4,12 +4,12 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Header } from '../components/header/index'
 
-export function Post () {
+export function Post() {
   const [lang, setLang] = useState('en')
   const { postId } = useParams()
   const dispatch = useDispatch()
 
-  function handleChangeLang (event) {
+  function handleChangeLang(event) {
     setLang(event.target.value)
   }
 
@@ -32,13 +32,24 @@ export function Post () {
     return (<div >Lоading</div>)
   }
 
-  function renderPost () {
+  function renderPost() {
     if (!post) return <div>Loading...</div>
     return (
 
       <div className="d-flex  w-100 justify-content-center" >
         <div className="d-block w-50">
           <p>{post.name}</p>
+          <p>{post.countries[0].name}</p>
+          <p>{post.alternativeName}</p>
+          <p>{post.description}</p>
+          <p>{post.year}</p>
+          <p>{post.type}</p>
+          <p>{post.votes.imbd}</p>
+          <p>{post.votes.kp}</p>
+
+       
+
+          <img src={post.poster?.url} className='w-50' />
           <img src={post.image} alt="" width={300} />
           <div className="lead">{post.text}</div>
         </div>

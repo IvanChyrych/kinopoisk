@@ -10,7 +10,7 @@ export const CardLarge = ({ post }) => {
   const dispatch = useDispatch()
 
   const handleImageClick = (event) => {
-    dispatch(setPostPreview(post.poster))
+    dispatch(setPostPreview(post.poster?.url))
     dispatch(showModal())
   }
 
