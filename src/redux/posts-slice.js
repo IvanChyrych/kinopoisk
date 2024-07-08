@@ -78,6 +78,8 @@ export const postsSlice = createSlice({
     toggleFavorite: (state, action) => {
       const postId = action.payload
       const post = state.list.find(post => post.id === postId)
+      console.log(post);
+      localStorage.setItem("posts", JSON.stringify(post));
       if (post) {
         const index = state.favorites.findIndex(favorite => favorite.id === postId)
         if (index === -1) {

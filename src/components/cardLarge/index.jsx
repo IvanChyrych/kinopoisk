@@ -24,6 +24,7 @@ export const CardLarge = ({ post }) => {
 
   const handleFavoriteClick = (event) => {
     dispatch(toggleFavorite(post.id))
+    
   }
   const handlePopularClick = (event) => {
     dispatch(togglePopular(post.id))

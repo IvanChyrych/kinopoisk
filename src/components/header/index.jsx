@@ -25,6 +25,7 @@ export function Header () {
           {/* <NavLink className={navLinkClass} to="/posts/new">Add post</NavLink> */}
           {/* <NavLink className={navLinkClass} to="/posts/my">My posts</NavLink> */}
           <NavLink className={navLinkClass} to="/posts/pages/1">Posts</NavLink>
+          <NavLink className={navLinkClass} to="/cart/">Cart</NavLink>
           {/* <NavLink className={navLinkClass} to="/auth/signin">Sign&nbsp;In</NavLink> */}
           <div className="ms-5"></div>
           {/* <NavLink className={navLinkClass} to="/auth/signup">Sign&nbsp;Up</NavLink> */}
