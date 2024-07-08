@@ -6,7 +6,7 @@ const signInEndpoint = '/auth/jwt/create/'
 const refreshJWTEndpoint = '/auth/jwt/refresh/'
 const myPostsEndpoint = 'blog/posts/my_posts'
 
-const postsEndpoint = '/v1.4/movie?'
+const postsEndpoint = '/v1.4/movie'
 
 export {
   baseEndpoint,

@@ -7,7 +7,7 @@ async function requestPosts (params = {}) {
 }
 
 async function requestPost (id) {
-  const { data } = await client.get(`${postsEndpoint}${id}`)
+  const { data } = await client.get(`${postsEndpoint}/${id}`)
   return data
 }
 

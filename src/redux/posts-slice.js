@@ -112,7 +112,7 @@ export const postsSlice = createSlice({
             isPopular: false
           }
         })
-        state.pagesCount = Math.ceil(action.payload.count / state.limit)
+        state.pagesCount = Math.ceil(action.payload.pages / state.limit)
       })
       .addCase(fetchPosts.rejected, (state, action) => {
         state.isLoading = false
