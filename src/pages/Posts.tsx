@@ -7,7 +7,7 @@ import { Header } from '../components/header'
 import { Title } from '../components/title/index'
 
 import { PostTabs } from '../components/postTabs/index'
-import { fetchPosts, changeSort } from '../../src/redux/posts-slice'
+import { fetchPosts, changeSort } from '../redux/posts-slice'
 import { NavLink, useParams } from 'react-router-dom'
 // import './index.scss'
 

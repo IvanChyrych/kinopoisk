@@ -3,7 +3,7 @@ import { Posts } from './pages/Posts'
 import { Post } from './pages/Post'
 import { Cart } from './pages/Cart'
 import { Layout } from './components/layout/index'
-import { SearchResults } from '../src/pages/SearchResults'
+import { SearchResults } from './pages/SearchResults'
 
 
 
