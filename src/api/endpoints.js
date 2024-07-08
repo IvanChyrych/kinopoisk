@@ -7,6 +7,7 @@ const refreshJWTEndpoint = '/auth/jwt/refresh/'
 const myPostsEndpoint = 'blog/posts/my_posts'
 
 const postsEndpoint = '/v1.4/movie'
+const postsSearchEndpoint = '/v1.4/movie/search'
 
 export {
   baseEndpoint,
@@ -15,5 +16,6 @@ export {
   postsEndpoint,
   signInEndpoint,
   refreshJWTEndpoint,
-  myPostsEndpoint
+  myPostsEndpoint,
+  postsSearchEndpoint
 }

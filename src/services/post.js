@@ -1,10 +1,12 @@
 import { client } from '../api/client'
-import { postsEndpoint, myPostsEndpoint } from '../api/endpoints'
+import { postsEndpoint, myPostsEndpoint, postsSearchEndpoint } from '../api/endpoints'
 
 async function requestPosts (params = {}) {
   const { data } = await client.get(postsEndpoint, { params })
   return data
 }
+
+
 
 async function requestPost (id) {
   const { data } = await client.get(`${postsEndpoint}/${id}`)
@@ -22,4 +24,13 @@ async function requestCreatePost (formData) {
   return response
 }
 
-export { requestPosts, requestPost, requestMyPosts, requestCreatePost }
+
+
+async function requestSearchPosts (params = {}) {
+  const { data } = await client.get(postsSearchEndpoint, { params })
+  return data
+}
+
+
+
+export { requestPosts, requestPost, requestMyPosts, requestCreatePost,requestSearchPosts }

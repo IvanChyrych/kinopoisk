@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { requestPosts, requestMyPosts, requestCreatePost } from '../services/post'
+import { requestPosts, requestMyPosts, requestCreatePost, requestSearchPosts } from '../services/post'
 
 const initialState = {
   list: [],
@@ -22,6 +22,17 @@ export const fetchPosts = createAsyncThunk('post/fetchPosts', async (params = {}
     return rejectWithValue(e.message)
   }
 })
+
+
+export const fetchSearchPosts = createAsyncThunk('post/fetchPosts', async (params = {}, { rejectWithValue }) => {
+  try {
+    const offset = (params.page - 1) * initialState.limit
+    return await requestSearchPosts({ limit: initialState.limit, ordering: initialState.sort, offset, ...params })
+  } catch (e) {
+    return rejectWithValue(e.message)
+  }
+})
+
 
 export const fetchMyPosts = createAsyncThunk('post/fetchMyPosts', async (_, { rejectedWithValue }) => {
   try {
