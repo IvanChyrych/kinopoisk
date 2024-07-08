@@ -17,7 +17,7 @@ const initialState = {
 export const fetchPosts = createAsyncThunk('post/fetchPosts', async (params = {}, { rejectWithValue }) => {
   try {
     const offset = (params.page - 1) * initialState.limit
-    return await requestPosts({ limit: initialState.limit, ordering: initialState.sort, offset, ...params })
+    return await requestPosts({ limit: initialState.limit, offset, ...params })
   } catch (e) {
     return rejectWithValue(e.message)
   }

@@ -40,7 +40,7 @@ export const CardLarge = ({ post }) => {
             <div className="photo m-1">
               <img  src={post.poster?.url} alt={post.title} onClick={handleImageClick} />
             </div>
-            <p className="discription">{post.text}</p>
+            <p className="description">{post.description}</p>
           </div>
         </div>
 

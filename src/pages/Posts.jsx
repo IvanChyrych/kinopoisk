@@ -57,7 +57,7 @@ export const Posts = () => {
 
   const handleChange = (event) => {
     dispatch(changeSort(event.target.value))
-    dispatch(fetchPosts({ ordering: event.target.value }))
+    dispatch(fetchPosts({ selectFields: event.target.value }))
   }
 
   function renderPosts () {
@@ -67,11 +67,11 @@ export const Posts = () => {
       <>
 
         <select className="nav-select" name="select" onChange={handleChange}>
-          <option value="date">Date</option>
-          <option value="title">Title</option>
-          <option value="text">Text</option>
-          <option value="lesson_num">Lesson Number</option>
+          <option value="name">name</option>
           <option defaultValue value="id">id</option>
+          <option value="description">description</option>
+          {/* <option value="lesson_num">Lesson Number</option>
+          <option defaultValue value="id">id</option> */}
         </select>
 
         <div className="d-flex w-100 justify-content-center" >
