@@ -1,23 +1,20 @@
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { CardLarge } from '../components/cardLarge/index'
-import { CardMedium } from '../components/cardMedium/index'
-import { CardSmall } from '../components/cardSmall/index'
+
 import { PostPreviewModal } from '../components/postPreviewModal/index'
 import { Header } from '../components/header'
 import { Title } from '../components/title/index'
-import { text } from '../config/text/index'
+
 import { PostTabs } from '../components/postTabs/index'
 import { fetchPosts, changeSort } from '../../src/redux/posts-slice'
 import { NavLink, useParams } from 'react-router-dom'
 // import './index.scss'
 
 export const Posts = () => {
-  const [lang, setLang] = useState('en')
 
-  function handleChangeLang (event) {
-    setLang(event.target.value)
-  }
+
+
   const sort = useSelector(state => state.posts.sort)
   const { page: currentPage } = useParams()
   const pagesCount = useSelector(state => state.posts.pagesCount)
@@ -76,7 +73,7 @@ export const Posts = () => {
         <PostTabs />
         <div className="d-flex w-100 justify-content-center" >
           <div className="d-flex flex-wrap m-5">
-            <Title title={text[lang].posts.title} />
+            <Title  />
             <>
               
               {

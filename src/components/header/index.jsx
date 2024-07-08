@@ -1,25 +1,20 @@
 import { useContext, useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-// import { UserPick } from './UserPick'
-import { setLang } from '../../redux/lang-slice'
+
 import { SearchForm } from '../searchForm/index'
 
 export function Header () {
-  const [langValue, setLangValue] = useState('en')
+
   // const user = useContext(UserContext)
   // const lang = useSelector(state => state.lang)
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    dispatch(setLang(langValue))
-  }, [langValue])
+
 
   const navLinkClass = ({ isActive }) => isActive ? 'nav-link active px-3' : 'nav-link px-3'
 
-  const handleChangeLang = (event) => {
-    setLangValue(event.target.value)
-  }
+
 
   return (
     <nav className="navbar bg-primary" data-bs-theme="dark">

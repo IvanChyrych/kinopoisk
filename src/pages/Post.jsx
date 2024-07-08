@@ -5,13 +5,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Header } from '../components/header/index'
 
 export function Post() {
-  const [lang, setLang] = useState('en')
+
   const { postId } = useParams()
   const dispatch = useDispatch()
 
-  function handleChangeLang(event) {
-    setLang(event.target.value)
-  }
 
   const post = useSelector(state => {
     return state.post.postBody
