@@ -10,7 +10,7 @@ export const CardLarge = ({ post }) => {
   const dispatch = useDispatch()
 
   const handleImageClick = (event) => {
-    dispatch(setPostPreview(post.image))
+    dispatch(setPostPreview(post.poster))
     dispatch(showModal())
   }
 
@@ -36,9 +36,9 @@ export const CardLarge = ({ post }) => {
           <Link to={`/posts/${post.id}`}>
             <h2 className="text">{post.name}</h2>
           </Link>
-          <div className="d-flex flex-row ">
+          <div className="d-flex flex-row photo">
             <div className="photo m-1">
-              <img  src={post.poster?.url} alt={post.title} onClick={handleImageClick} />
+              <img className='cardLargeContainer__poster' src={post.poster?.url} alt={post.title} onClick={handleImageClick} />
             </div>
             <p className="description">{post.description}</p>
           </div>

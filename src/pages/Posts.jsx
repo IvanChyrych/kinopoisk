@@ -73,12 +73,12 @@ export const Posts = () => {
           {/* <option value="lesson_num">Lesson Number</option>
           <option defaultValue value="id">id</option> */}
         </select>
-
+        <PostTabs />
         <div className="d-flex w-100 justify-content-center" >
-          <div className="d-block m-5">
+          <div className="d-flex flex-wrap m-5">
             <Title title={text[lang].posts.title} />
             <>
-              <PostTabs />
+              
               {
                 posts.map((post) => (
                   <div key={post.id} to={`/posts/${post.id}`} >
@@ -86,19 +86,19 @@ export const Posts = () => {
                       <div className="d-block m-1">
                         <CardLarge post={post} />
                       </div>
-                      <div className="b-block m-1">
+                      {/* <div className="b-block m-1">
                         <CardMedium post={post} />
                       </div>
                       <div className="d-block m-1">
                         <CardSmall post={post} />
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 ))
               }
             </>
           </div>
-          <PostPreviewModal />
+          <PostPreviewModal post={posts}/>
         </div>
       </>
     )

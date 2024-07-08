@@ -27,18 +27,18 @@ export function Header () {
         <span className="navbar-brand">Blog</span>
 
         <div className="navbar-nav flex-row">
-          <NavLink className={navLinkClass} to="/posts/new">Add post</NavLink>
-          <NavLink className={navLinkClass} to="/posts/my">My posts</NavLink>
+          {/* <NavLink className={navLinkClass} to="/posts/new">Add post</NavLink> */}
+          {/* <NavLink className={navLinkClass} to="/posts/my">My posts</NavLink> */}
           <NavLink className={navLinkClass} to="/posts/pages/1">Posts</NavLink>
-          <NavLink className={navLinkClass} to="/auth/signin">Sign&nbsp;In</NavLink>
+          {/* <NavLink className={navLinkClass} to="/auth/signin">Sign&nbsp;In</NavLink> */}
           <div className="ms-5"></div>
-          <NavLink className={navLinkClass} to="/auth/signup">Sign&nbsp;Up</NavLink>
+          {/* <NavLink className={navLinkClass} to="/auth/signup">Sign&nbsp;Up</NavLink> */}
           <SearchForm/>
 
-          <select className="form-select ms-5" value={langValue} onChange={handleChangeLang}>
+          {/* <select className="form-select ms-5" value={langValue} onChange={handleChangeLang}>
             <option value="en">En</option>
             <option value="ru">Ru</option>
-          </select>
+          </select> */}
         </div>
       </div>
     </nav>

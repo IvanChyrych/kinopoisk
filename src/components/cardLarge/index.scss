@@ -2,7 +2,7 @@
     max-width: 730px;
     display: flex;
     margin: 5px;
-    
+
 
     .wrapper {
         border: 1px solid black;
@@ -25,6 +25,9 @@
             color: rgba(141, 142, 151, 1);
             ;
         }
-
     }
+}
+
+.cardLargeContainer__poster{
+    max-width: 200px;
 }

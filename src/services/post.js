@@ -1,5 +1,5 @@
 import { client } from '../api/client'
-import { postsEndpoint, myPostsEndpoint, postsSearchEndpoint } from '../api/endpoints'
+import { postEndpoint,postsEndpoint, myPostsEndpoint, postsSearchEndpoint } from '../api/endpoints'
 
 async function requestPosts (params = {}) {
   const { data } = await client.get(postsEndpoint, { params })
@@ -9,7 +9,7 @@ async function requestPosts (params = {}) {
 
 
 async function requestPost (id) {
-  const { data } = await client.get(`${postsEndpoint}/${id}`)
+  const { data } = await client.get(`${postEndpoint}/${id}`)
   return data
 }
 
