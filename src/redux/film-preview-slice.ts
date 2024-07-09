@@ -5,7 +5,7 @@ const initialState = {
   isShown: false
 }
 
-export const postPreviewSlice = createSlice({
+export const filmPreviewSlice = createSlice({
   name: 'postPreview',
   initialState,
   reducers: {
@@ -22,5 +22,5 @@ export const postPreviewSlice = createSlice({
 }
 )
 
-export const { setPostPreview, showModal, hideModal } = postPreviewSlice.actions
-export const postPreviewReducer = postPreviewSlice.reducer
+export const { setPostPreview, showModal, hideModal } = filmPreviewSlice.actions
+export const postPreviewReducer = filmPreviewSlice.reducer

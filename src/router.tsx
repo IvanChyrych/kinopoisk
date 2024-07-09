@@ -1,11 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { Posts } from './pages/Posts'
-import { Post } from './pages/Post'
+import { Posts } from './pages/Films'
+import { Post } from './pages/Film'
 import { Cart } from './pages/Cart'
 import { Layout } from './components/layout/index'
 import { SearchResults } from './pages/SearchResults'
-
-
 
 export const router = createBrowserRouter([
   {

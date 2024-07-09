@@ -1,7 +1,7 @@
 import React from 'react'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
 import { useDispatch, useSelector } from 'react-redux'
-import { hideModal } from '../../redux/post-preview-slice'
+import { hideModal } from '../../redux/film-preview-slice'
 import '../postPreviewModal/index.scss'
 
 export const PostPreviewModal = () => {

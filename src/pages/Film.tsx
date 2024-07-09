@@ -1,8 +1,7 @@
-import { removePostFromRedux, fetchPost } from '../redux/post-slice'
+import { removePostFromRedux, fetchFilm } from '../redux/film-slice'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Header } from '../components/header/index'
 
 export function Post() {
 
@@ -18,7 +17,7 @@ export function Post() {
     if (!(Object.keys(post).length === 0) && (post.id === postId)) {
       return
     }
-    dispatch(fetchPost(postId))
+    dispatch(fetchFilm(postId))
 
     return () => {
       dispatch(removePostFromRedux())
@@ -42,10 +41,7 @@ export function Post() {
           <p>{post.year}</p>
           <p>{post.type}</p>
           <p>{post.votes.imbd}</p>
-          <p>{post.votes.kp}</p>
-
-       
-
+          <p>{post.votes.kp}</p> 
           <img src={post.poster?.url} className='w-50' />
           <img src={post.image} alt="" width={300} />
           <div className="lead">{post.text}</div>

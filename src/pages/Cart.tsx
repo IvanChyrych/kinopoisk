@@ -5,20 +5,25 @@ export const Cart = () => {
 
     if (localStorage.getItem("posts")) {
         posts = JSON.parse(localStorage.getItem("posts"));
-        
+
+    }
+
+    const removeFilm = () => {
+        localStorage.clear();
     }
 
 
 
-console.log(posts);
+    console.log(posts);
 
 
     return (
         <>
-        <p>123</p>
-        {posts.name}
+            <p>123</p>
+            {posts.name}
+            <button onClick={removeFilm}>delete</button>
         </>
-        
+
     )
 
 }

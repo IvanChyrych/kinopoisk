@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchSearchPosts } from '../redux/posts-slice'
+import { fetchSearchPosts } from '../redux/films-slice'
 import { CardPost } from '../components/cardPost/index'
 
 export function SearchResults () {

@@ -1,19 +1,12 @@
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { CardLarge } from '../components/cardLarge/index'
-
 import { PostPreviewModal } from '../components/postPreviewModal/index'
-import { Header } from '../components/header'
 import { Title } from '../components/title/index'
-
-import { PostTabs } from '../components/postTabs/index'
-import { fetchPosts, changeSort } from '../redux/posts-slice'
+import { fetchFilms, changeSort } from '../redux/films-slice'
 import { NavLink, useParams } from 'react-router-dom'
-// import './index.scss'
 
 export const Posts = () => {
-
-
 
   const sort = useSelector(state => state.posts.sort)
   const { page: currentPage } = useParams()
@@ -35,10 +28,10 @@ export const Posts = () => {
   const isLoading = useSelector(state => state.posts.isLoading)
 
   useEffect(() => {
-    dispatch(fetchPosts({ page: currentPage || 1, ordering: sort }))
+    dispatch(fetchFilms({ page: currentPage || 1, ordering: sort }))
   }, [currentPage])
 
-  function buildPaginationScheme () {
+  function buildPaginationScheme() {
     const prevPageNumber = +currentPage - 1 // предполагаемая предыдущая страница, может получиться отрицательной
     const nextPageNumber = +currentPage + 1 // предполагаемая следующая страница, может получиться больше максимальной
     const scheme = [1, prevPageNumber, +currentPage, nextPageNumber, pagesCount] // строим схему
@@ -54,56 +47,44 @@ export const Posts = () => {
 
   const handleChange = (event) => {
     dispatch(changeSort(event.target.value))
-    dispatch(fetchPosts({ selectFields: event.target.value }))
+    dispatch(fetchFilms({ selectFields: event.target.value }))
   }
 
-  function renderPosts () {
+  function renderPosts() {
     if (isLoading) return <div>Loading...</div>
     if (error) return <div className='alert alert-danger'>{error}</div>
     return (
       <>
-
         <select className="nav-select" name="select" onChange={handleChange}>
           <option value="name">name</option>
-          <option defaultValue value="id">id</option>
+          <option value="id">id</option>
           <option value="description">description</option>
-          {/* <option value="lesson_num">Lesson Number</option>
-          <option defaultValue value="id">id</option> */}
         </select>
-        <PostTabs />
         <div className="d-flex w-100 justify-content-center" >
-          <div className="d-flex flex-wrap m-5">
-            <Title  />
+          <div className="d-flex flex-wrap m-5 w-75">
+            
             <>
-              
               {
                 posts.map((post) => (
-                  <div key={post.id} to={`/posts/${post.id}`} >
+                  <div className='m-10 w-750' key={post.id} to={`/posts/${post.id}`} >
                     <div className="d-flex flex-wrap">
                       <div className="d-block m-1">
                         <CardLarge post={post} />
                       </div>
-                      {/* <div className="b-block m-1">
-                        <CardMedium post={post} />
-                      </div>
-                      <div className="d-block m-1">
-                        <CardSmall post={post} />
-                      </div> */}
                     </div>
                   </div>
                 ))
               }
             </>
           </div>
-          <PostPreviewModal post={posts}/>
+          <PostPreviewModal post={posts} />
         </div>
       </>
     )
   }
 
-  function renderPagination () {
+  function renderPagination() {
     if (!pagesCount) return null
-
     const paginationScheme = buildPaginationScheme()
 
     return (

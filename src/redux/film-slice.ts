@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { requestPost } from '../services/post'
+import { requestFilm } from '../services/post'
 
 const initialState = {
   postBody: {},
@@ -7,16 +7,16 @@ const initialState = {
   error: null
 }
 
-export const fetchPost = createAsyncThunk('post/fetchPost', async (id, { rejectedWithValue }) => {
+export const fetchFilm = createAsyncThunk('post/fetchFilm', async (id, { rejectedWithValue }) => {
   try {
-    const post = requestPost(id)
+    const post = requestFilm(id)
     return post
   } catch (e) {
     return rejectedWithValue(e.message)
   }
 })
 
-const postSlice = createSlice({
+const filmSlice = createSlice({
   name: 'post',
   initialState,
   reducers: {
@@ -26,19 +26,19 @@ const postSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchPost.pending, (state) => {
+      .addCase(fetchFilm.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(fetchPost.fulfilled, (state, action) => {
+      .addCase(fetchFilm.fulfilled, (state, action) => {
         state.isLoading = false
         state.postBody = action.payload
       })
-      .addCase(fetchPost.rejected, (state, action) => {
+      .addCase(fetchFilm.rejected, (state, action) => {
         state.isLoading = false
         state.error = action.error.message
       })
   }
 })
 
-export const { removePostFromRedux } = postSlice.actions
-export const postReducer = postSlice.reducer
+export const { removePostFromRedux } = filmSlice.actions
+export const postReducer = filmSlice.reducer

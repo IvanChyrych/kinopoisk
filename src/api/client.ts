@@ -10,7 +10,3 @@ export const client = axios.create({
 }
 })
 
-export const setAccessTokenClient = (token) => {
-  if (!token) return
-  client.defaults.headers.common.Authorization = 'Bearer ' + token
-}
