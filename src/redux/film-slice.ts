@@ -1,13 +1,20 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { requestFilm } from '../services/post'
+import { IFilmItem } from '../types/IFilmItem'
 
-const initialState = {
+export interface FilmState  {
+  postBody: IFilmItem,
+  isLoading: boolean,
+  error: string | null | undefined
+}
+
+const initialState: FilmState = {
   postBody: {},
   isLoading: false,
   error: null
 }
 
-export const fetchFilm = createAsyncThunk('post/fetchFilm', async (id, { rejectedWithValue }) => {
+export const fetchFilm = createAsyncThunk('post/fetchFilm', async (id: string, { rejectedWithValue }) => {
   try {
     const post = requestFilm(id)
     return post

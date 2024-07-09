@@ -1,7 +1,18 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { requestFilms,  requestSearchFilms } from '../services/post'
+import { IFilmsItem } from '../types/IFilmsItem'
 
-const initialState = {
+export interface FilmsState  {
+  list: IFilmsItem[],
+  isLoading: boolean,
+  favorites: IFilmsItem[],
+  error: string | null | undefined,
+  limit: number,
+  pagesCount: string | null | undefined,
+  sort: string
+}
+
+const initialState: FilmsState = {
   list: [],
   isLoading: false,
   favorites: [],
@@ -20,7 +31,6 @@ export const fetchFilms = createAsyncThunk('post/fetchPosts', async (params = {}
   }
 })
 
-
 export const fetchSearchPosts = createAsyncThunk('post/fetchPosts', async (params = {}, { rejectWithValue }) => {
   try {
     const offset = (params.page - 1) * initialState.limit
@@ -29,7 +39,6 @@ export const fetchSearchPosts = createAsyncThunk('post/fetchPosts', async (param
     return rejectWithValue(e.message)
   }
 })
-
 
 export const postsSlice = createSlice({
   name: 'posts',
@@ -42,7 +51,7 @@ export const postsSlice = createSlice({
     toggleFavorite: (state, action) => {
       const postId = action.payload
       const post = state.list.find(post => post.id === postId)
-      console.log(post);
+
       localStorage.setItem("posts", JSON.stringify(post));
       if (post) {
         const index = state.favorites.findIndex(favorite => favorite.id === postId)
@@ -59,7 +68,6 @@ export const postsSlice = createSlice({
       state.sort = action.payload
     }
   },
-
   extraReducers: (builder) => {
     builder
       .addCase(fetchFilms.pending, (state) => {

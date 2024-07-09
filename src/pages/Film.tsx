@@ -34,17 +34,12 @@ export function Post() {
 
       <div className="d-flex  w-100 justify-content-center" >
         <div className="d-block w-50">
-          <p>{post.name}</p>
-          <p>{post.countries[0].name}</p>
-          <p>{post.alternativeName}</p>
-          <p>{post.description}</p>
-          <p>{post.year}</p>
-          <p>{post.type}</p>
-          <p>{post.votes.imbd}</p>
-          <p>{post.votes.kp}</p> 
+          <h1>{post.name}</h1>
           <img src={post.poster?.url} className='w-50' />
-          <img src={post.image} alt="" width={300} />
-          <div className="lead">{post.text}</div>
+          <p>Страна: <b>{post.countries[0].name} </b> </p>
+          <p>Год: <b>{post.year}</b> </p>
+          <p>Рейтинг Кинопоиск: <b>{post.votes.kp} </b> </p>
+          <p>{post.description}</p>
         </div>
       </div>
     )

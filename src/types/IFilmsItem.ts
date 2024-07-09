@@ -1,4 +1,4 @@
-export interface ICardBook extends Error {
+export interface IFilmsItem extends Error {
     isbn13: string
     image: string
     title: string

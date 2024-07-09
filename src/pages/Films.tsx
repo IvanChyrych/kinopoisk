@@ -11,7 +11,7 @@ export const Posts = () => {
   const sort = useSelector(state => state.posts.sort)
   const { page: currentPage } = useParams()
   const pagesCount = useSelector(state => state.posts.pagesCount)
-  console.log(pagesCount);
+
   const dispatch = useDispatch()
   const activeTab = useSelector(state => state.posts.activeTab)
   const posts = useSelector(state => {

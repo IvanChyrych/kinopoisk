@@ -1,4 +1,4 @@
-export interface IBookPreview {
+export interface IFilmItem {
     error?: string
     title?: string
     subtitle?: string
