@@ -1,8 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { requestFilms,  requestSearchFilms } from '../services/post'
+import { requestFilms, requestSearchFilms } from '../services/post'
 import { IFilmsItem } from '../types/IFilmsItem'
+import { useSelector } from 'react-redux'
 
-export interface FilmsState  {
+let postsFavorites = []
+
+//  const postsFavorites = localStorage.getItem("postsFavorites")
+
+export interface FilmsState {
   list: IFilmsItem[],
   isLoading: boolean,
   favorites: IFilmsItem[],
@@ -40,7 +45,12 @@ export const fetchSearchPosts = createAsyncThunk('post/fetchPosts', async (param
   }
 })
 
+
+
 export const postsSlice = createSlice({
+
+
+  
   name: 'posts',
   initialState,
   reducers: {
@@ -51,12 +61,17 @@ export const postsSlice = createSlice({
     toggleFavorite: (state, action) => {
       const postId = action.payload
       const post = state.list.find(post => post.id === postId)
+      localStorage.setItem("postsFavorites", JSON.stringify(postsFavorites));
+      console.log(typeof postsFavorites);
 
-      localStorage.setItem("posts", JSON.stringify(post));
+      postsFavorites.push(JSON.stringify(post))
+
+      
       if (post) {
         const index = state.favorites.findIndex(favorite => favorite.id === postId)
-        if (index === -1) {
+        if (index === 1) {
           state.favorites.push(post)
+          // localStorage.setItem("posts", JSON.stringify(post));
         } else {
           state.favorites.splice(index, 1)
         }
@@ -93,5 +108,5 @@ export const postsSlice = createSlice({
   }
 })
 
-export const { setActiveTab, toggleFavorite,  changeSort } = postsSlice.actions
+export const { setActiveTab, toggleFavorite, changeSort } = postsSlice.actions
 export const postsReducer = postsSlice.reducer

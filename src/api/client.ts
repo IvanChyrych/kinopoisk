@@ -6,7 +6,7 @@ export const client = axios.create({
   // timeout: 3000,
   headers: {
     'Content-Type': 'application/json',
-    'X-API-KEY': '0JPEDBY-CM3MRJQ-NDMR0N1-FW6Q5R1'
+    'X-API-KEY': 'QPVT2B0-R1F4QG4-JZRSDBM-2FPDWCJ'
 }
 })
 
